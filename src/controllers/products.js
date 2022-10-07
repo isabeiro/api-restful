@@ -19,6 +19,30 @@ async function get(req, res) {
     res.send(products)
 }
 
+// cadastrando, enviando dados
+async function post(req, res) {
+    const {
+        name,
+        brand,
+        price,
+    } = req.body //.body pq é metodo post
+
+    console.log(req.body)   //para ver o que esta chegando nio req.body
+
+    const product = new ProductsModel({
+        name,
+        brand,
+        price,
+    })
+
+    product.save()
+
+    res.send({
+        message: 'success'
+    })  //devolve pra api
+}
+
 module.exports = {
     get,
+    post,
 }

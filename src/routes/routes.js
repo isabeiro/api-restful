@@ -11,7 +11,7 @@ const ProductController = require('../controllers/products')
 router.get('/products/:id?', ProductController.get) 
 // /products/:id? a interrogaçaõ após o id pra dizer q ele é opcional, se não passar id retorna todos os products
 router.post('/products', ProductController.post) 
-//router.put('/products/:id', ProductController.put) 
+router.put('/products/:id', ProductController.put)  //id obrigatorio para ter referencia para alterar
 //router.delete('/products/:id', ProductController.delete) 
 
 

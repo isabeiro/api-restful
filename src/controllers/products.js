@@ -42,7 +42,30 @@ async function post(req, res) {
     })  //devolve pra api
 }
 
+async function put(req, res) {
+    const { id } = req.params
+
+    const product = await ProductsModel.findOneAndUpdate({ _id: id }, req.body, { new: true })
+
+    res.send({
+        message: 'success',
+        product,
+    })
+
+    /*     
+    const product = await ProductsModel.findOne({ _id: id })  //pode ser findById tbm
+
+    await product.updateOne(req.body) //pode passar um parametro so ex: .name, .age etc
+
+    res.send({
+        message: 'success',     // desse jeito está retornando no compass o produto sem atualizar, mas no mongo está atualizado
+        product,                //responde mensagem e o produto atualizado
+    }) 
+    */
+}
+
 module.exports = {
     get,
     post,
+    put,
 }

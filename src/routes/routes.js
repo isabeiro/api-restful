@@ -8,7 +8,8 @@ const ProductController = require('../controllers/products')
 // PUT - atualizar dados
 // DELETE - deletar/remover dados
 
-router.get('/products', ProductController.get) 
+router.get('/products/:id?', ProductController.get) 
+// /products/:id? a interrogaçaõ após o id pra dizer q ele é opcional, se não passar id retorna todos os products
 //router.post('/products', ProductController.post) 
 //router.put('/products/:id', ProductController.put) 
 //router.delete('/products/:id', ProductController.delete) 
